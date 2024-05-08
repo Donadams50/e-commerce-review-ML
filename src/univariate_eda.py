@@ -40,8 +40,8 @@ if __name__ == "__main__":
     # Load the split datasets
     train_data = pd.read_csv("./split_data/train_data.csv")
     # Perform univariate EDA on the training data
-    #plot_category_distribution(train_data)
-    #plot_review_length_vs_categories(train_data)
+    plot_category_distribution(train_data)
+    plot_review_length_vs_categories(train_data)
     # Call the function with your dataset
     plot_rating_distribution(train_data, 'shipping')
     plot_rating_distribution(train_data, 'user-experience')

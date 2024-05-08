@@ -78,7 +78,7 @@ def encode_dataset(dff):
     # Create a folder for saving encoded datasets
     save_path = os.path.join(script_dir, "encoded_dataset")
     os.makedirs(save_path, exist_ok=True)
-    df_encoded.to_csv(os.path.join(save_path, "df_encoded.csv"), index=False)
+    df_encoded.to_csv(os.path.join(save_path, "test_df_encoded.csv"), index=False)
 
 def data_preprocessing(df):
   
@@ -94,7 +94,7 @@ def data_preprocessing(df):
 if __name__ == "__main__":
     # Define path to the Excel dataset file
     #file_path = "./reviews.xlsx" 
-    #file_path = "./split_data/train_data.csv"
+    file_path = "./split_data/val_data.csv"
 
     # Load the dataset
     # dataset = load_dataset(file_path)
@@ -103,19 +103,18 @@ if __name__ == "__main__":
     dataset = load_dataset(file_path)
     # Dealing with Missing Values
     # Split the dataset
-#train_data, val_data, test_data_hidden, train_data_preserved, val_data_preserved, test_data_preserved = split_dataset_once(dataset)
+train_data, val_data, test_data_hidden, train_data_preserved, val_data_preserved, test_data_preserved = split_dataset_once(dataset)
 
 # Display shapes of the datasets to verify the split
-# print("Training data shape:", train_data.shape)
-# print("Deep copy Training data shape:", train_data_preserved.shape)
-# print("Validation data shape:", val_data.shape)
-# print("Deep copy Validation data shape:", val_data_preserved.shape)
-# print("Testing data shape (with category hidden):", test_data_hidden.shape)
-# print("Deep copy Testing data shape (with category hidden):", test_data_preserved.shape)
-# Load the dataset
+print("Training data shape:", train_data.shape)
+print("Deep copy Training data shape:", train_data_preserved.shape)
+print("Validation data shape:", val_data.shape)
+print("Deep copy Validation data shape:", val_data_preserved.shape)
+print("Testing data shape (with category hidden):", test_data_hidden.shape)
+print("Deep copy Testing data shape (with category hidden):", test_data_preserved.shape)
 
 
 # Apply data preprocessing function
-#df = print_missing_values(dataset)
-#df_encoded = encode_dataset(dataset)
+df = print_missing_values(dataset)
+df_encoded = encode_dataset(dataset)
 dff = data_preprocessing(dataset)
